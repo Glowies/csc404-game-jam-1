@@ -7,6 +7,9 @@ public class EnergyManager : MonoBehaviour
     public static EnergyManager instance { get; private set; }
     public float maxEnergy = 100f;
     private float currentEnergy;
+
+    public bool IsSleeping;
+
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
@@ -19,7 +22,7 @@ public class EnergyManager : MonoBehaviour
         { 
             instance = this; 
         } 
-        currentEnergy = 20f;
+        currentEnergy = 40f;
     }
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,7 @@ public class EnergyManager : MonoBehaviour
             currentEnergy = 0.0f;
         }
         else {
-            currentEnergy -= 0.01f;
+            currentEnergy -= 0.1f;
         }
     }
 
@@ -51,7 +54,7 @@ public class EnergyManager : MonoBehaviour
             currentEnergy = maxEnergy;
         }
         else {
-            currentEnergy += 0.01f;
+            currentEnergy += 0.1f;
         }
     }
     

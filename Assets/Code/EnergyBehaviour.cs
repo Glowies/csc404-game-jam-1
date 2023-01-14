@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnergyBehaviour : MonoBehaviour
 {
+    public GameObject DedText;
     private Slider energy;
 
     // Start is called before the first frame update
@@ -18,9 +19,23 @@ public class EnergyBehaviour : MonoBehaviour
     void Update()
     {
         if (Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("right") || Input.GetKey("left"))
+        {
+            if(!EnergyManager.instance.IsSleeping)
             {
                 EnergyManager.instance.LoseEnergy();
                 energy.value = EnergyManager.instance.GetEnergy() / 100f;
             }
+        }
+
+        if(EnergyManager.instance.IsSleeping)
+        {
+            EnergyManager.instance.AddEnergy();
+            energy.value = EnergyManager.instance.GetEnergy() / 100f;
+        }
+
+        if(EnergyManager.instance.GetEnergy() <= 0)
+        {
+            DedText.SetActive(true);
+        }
     }
 }

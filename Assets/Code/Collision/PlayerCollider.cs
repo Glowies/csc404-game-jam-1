@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
+    public GameObject DedText;
+    public GameObject WinText;
+
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.TryGetComponent(out HazardCollider hazard))
+        if(other.TryGetComponent(out HazardCollider hazard))
         {
+            DedText.SetActive(true);
             return;
         }
 
-        _gameManager.EndGame();
+        if(other.TryGetComponent(out WinCollider win))
+        {
+            WinText.SetActive(true);
+            return;
+        }
     }
 }

@@ -33,8 +33,9 @@ public class EnemyAI : MonoBehaviour
         //    }
         //}
 
-
-        if (Vector3.Distance(transform.position, target) < 1)
+        var currPos = new Vector3(transform.position.x, 0, transform.position.z);
+        var targetPos = new Vector3(target.x, 0, target.z);
+        if (Vector3.Distance(currPos, targetPos) < 1)
         {   // If distance to waypoint is less than 1m, update waypoint
             iterateWaypointIndex();
             UpdateDestination();

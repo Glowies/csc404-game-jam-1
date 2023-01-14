@@ -110,4 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   TileTexture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
-  TileSize: {x: 1, y: 1}
+  TileSize: {x: 8, y: 8}

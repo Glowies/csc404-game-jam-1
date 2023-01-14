@@ -19,10 +19,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         _userFrontBackInput = Input.GetAxis("Vertical");
-        Debug.Log(_userFrontBackInput);
-
         _userLeftRightInput = Input.GetAxis("Horizontal");
-        Debug.Log(_userLeftRightInput);
 
         gameObject.GetComponent<Transform>().position += transform.forward * _userFrontBackInput * ScaleMovement * Time.deltaTime;
         gameObject.GetComponent<Transform>().position += transform.right * _userLeftRightInput * ScaleMovement * Time.deltaTime;
